@@ -8,7 +8,6 @@ class Song < ActiveRecord::Base
       with_options if: :released? do |song|
         song.validates :release_year, presence: true
         song.validates :release_year, numericality: { less_than_or_equal_to: Date.today.year }
-        # add current date with Date.today.year
         song.validates :release_year, uniqueness: true
         end
       validates :artist_name, presence: true
